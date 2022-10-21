@@ -1,7 +1,6 @@
 package javawebframeworks
 
 val data = listOf(
-
     Entry(
         name = "Spring MVC",
         dedicatedUrl = "https://spring.io/projects/spring-framework",
