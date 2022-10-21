@@ -15,6 +15,8 @@ class HtmlGenerator {
                     <th>Name</th>
                     <th>Source</th>
                     <th>Languages</th>
+                    <th>Platform</th>
+                    <th>Pattern</th>
                 </thead>
         """.trimIndent()
 
@@ -28,6 +30,8 @@ class HtmlGenerator {
                 |<td><a href="${it.dedicatedUrl}">${it.name}</a></td>
                 |<td>${if (it.repositoryUrl != null ) """<a href='${it.repositoryUrl}'>source</a>""" else ""}</td>
                 |<td>${it.languages.map { it.languageName }.joinToString(", ")}</td>
+                |<td>${it.serverSidePlatform ?: ""}</td>
+                |<td>${it.pattern ?: ""}</td>
                 |</tr>""".trimMargin()
         }.joinToString(" ")
 
@@ -45,8 +49,8 @@ class MarkdownGenerator {
             .readText()
 
         val tableHeader = """
-            | Name | Source | Languages |
-            | ---- | ------ | --------- |
+            | Name | Source | Languages | Platform | Pattern |
+            | ---- | ------ | --------- | -------- | ------- |
         """.trimIndent()
 
         val tableFooter = """
@@ -57,6 +61,8 @@ class MarkdownGenerator {
             """| [${it.name}](${it.dedicatedUrl})
                | ${if (it.repositoryUrl != null ) """[source](${it.repositoryUrl})""" else ""}
                | ${it.languages.map { it.languageName }.joinToString(", ")}
+               | ${it.serverSidePlatform ?: ""}
+               | ${it.pattern ?: ""}
                |""".trimIndent().replace('\n', ' ')
         }.joinToString("\n")
 
