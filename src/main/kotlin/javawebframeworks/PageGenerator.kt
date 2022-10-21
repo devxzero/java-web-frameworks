@@ -17,6 +17,7 @@ class HtmlGenerator {
                     <th>Languages</th>
                     <th>Platform</th>
                     <th>Pattern</th>
+                    <th>Category</th>
                 </thead>
         """.trimIndent()
 
@@ -32,6 +33,7 @@ class HtmlGenerator {
                 |<td>${it.languages.map { it.languageName }.joinToString(", ")}</td>
                 |<td>${it.serverSidePlatform ?: ""}</td>
                 |<td>${it.pattern ?: ""}</td>
+                |<td>${it.category ?: ""}</td>
                 |</tr>""".trimMargin()
         }.joinToString(" ")
 
@@ -49,8 +51,8 @@ class MarkdownGenerator {
             .readText()
 
         val tableHeader = """
-            | Name | Source | Languages | Platform | Pattern |
-            | ---- | ------ | --------- | -------- | ------- |
+            | Name | Source | Languages | Platform | Pattern | Category | Description |
+            | ---- | ------ | --------- | -------- | ------- | -------- | ----------- |
         """.trimIndent()
 
         val tableFooter = """
@@ -63,6 +65,8 @@ class MarkdownGenerator {
                | ${it.languages.map { it.languageName }.joinToString(", ")}
                | ${it.serverSidePlatform ?: ""}
                | ${it.pattern ?: ""}
+               | ${it.category ?: ""}
+               | ${it.description ?: ""}
                |""".trimIndent().replace('\n', ' ')
         }.joinToString("\n")
 

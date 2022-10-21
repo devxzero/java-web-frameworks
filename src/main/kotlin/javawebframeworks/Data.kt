@@ -11,19 +11,30 @@ val data = listOf(
         pattern = "mvc",
     ),
     Entry(
+        name = "Spring Boot",
+        dedicatedUrl = "https://spring.io/projects/spring-boot",
+        description = "Not directly related to web, but often used with Spring MVC.",
+        languages = listOf(Language.JAVA, Language.KOTLIN),
+        repositoryUrl = "https://github.com/spring-projects/spring-boot",
+        category = "Spring application platform"
+    ),
+    Entry(
         name = "Tapestry",
         dedicatedUrl = "https://tapestry.apache.org/",
         repositoryUrl = "https://github.com/apache/tapestry-5",
         description = "",
         languages = listOf(Language.JAVA),
         serverSidePlatform = "Servlet",
+        category = "web framework",
     ),
     Entry(
         name = "Vaadin",
         dedicatedUrl = "https://vaadin.com/",
         repositoryUrl = "https://github.com/vaadin/framework",
         description = "",
-        languages = listOf(Language.JAVA)
+        languages = listOf(Language.JAVA),
+        serverSidePlatform = "Servlet, Spring Boot, GWT",
+        category = "web framework",
     ),
     Entry(
         name = "Wicket",
@@ -32,6 +43,7 @@ val data = listOf(
         description = "",
         languages = listOf(Language.JAVA),
         serverSidePlatform = "Servlet",
+        category = "web framework",
     ),
     Entry(
         name = "Kweb",
@@ -40,6 +52,7 @@ val data = listOf(
         description = "",
         languages = listOf(Language.KOTLIN),
         serverSidePlatform = "Ktor or Servlet",
+        category = "web framework",
     ),
     Entry(
         name = "JavaServer Faces (JSF)",
@@ -47,6 +60,7 @@ val data = listOf(
         description = "",
         languages = listOf(Language.JAVA),
         serverSidePlatform = "Servlet",
+        category = "web framework",
     ),
     Entry(
         name = "Play",
@@ -56,6 +70,7 @@ val data = listOf(
         languages = listOf(Language.JAVA, Language.SCALA),
         serverSidePlatform = "Akka or Netty",
         pattern = "mvc",
+        category = "web framework",
     ),
     Entry(
         name = "Jooby",
@@ -72,6 +87,7 @@ val data = listOf(
         description = "",
         languages = listOf(Language.JAVA),
         serverSidePlatform = "Servlet",
+        category = "web framework",
     ),
     Entry(
         name = "Grails",
@@ -81,13 +97,16 @@ val data = listOf(
         languages = listOf(Language.GROOVY),
         serverSidePlatform = "Servlet",
         pattern = "mvc",
+        category = "web framework",
     ),
     Entry(
         name = "GWT",
         dedicatedUrl = "https://www.gwtproject.org/",
         repositoryUrl = "https://github.com/gwtproject/gwt",
         description = "",
-        languages = listOf(Language.JAVA)
+        languages = listOf(Language.JAVA),
+        serverSidePlatform = "Servlet",
+        category = "web framework, Java-to-JS compiler",
     ),
     Entry(
         name = "Udash",
@@ -102,7 +121,7 @@ val data = listOf(
         repositoryUrl = "https://github.com/jwstegemann/fritz2",
         description = "",
         languages = listOf(Language.KOTLIN),
-        serverSidePlatform = "Ktor or Spring Boot or Servlet"
+        serverSidePlatform = "Ktor or Spring Boot or Servlet",
     ),
     Entry(
         name = "Kobweb",
@@ -110,7 +129,8 @@ val data = listOf(
         repositoryUrl = "https://github.com/varabyte/kobweb",
         description = "",
         languages = listOf(Language.KOTLIN),
-        serverSidePlatform = "Ktor"
+        serverSidePlatform = "Ktor",
+        category = "web framework",
     )
 )
 
@@ -119,9 +139,10 @@ data class Entry(
     val name: String,
     val dedicatedUrl: String,
     val repositoryUrl: String? = null,
-    val description: String,
+    val description: String? = null,
     val serverSidePlatform: String? = null,
     val pattern: String? = null,
+    val category: String? = null,
     val languages: List<Language>,
 )
 
